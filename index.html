@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
+<html lang="en" dir="ltr">
 
 <head>
   <meta charset="utf-8">
@@ -156,7 +156,7 @@
     </div>
   </div>
   <div class='map-overlay' id='legend'></div>
-  <script src="files/scripts.js"></script>
+  <script src="script.js"></script>
 
   <script>
     function toggleInfo() {
@@ -208,20 +208,10 @@
     });
     map.on('mousemove', function(e) {
       var states = map.queryRenderedFeatures(e.point, {
-        layers: ['Andenes_layer']
+        layers: ['zerowater']
       });
 
-      if (states[0].properties.MBG_Width > 0 && states[0].properties.MBG_Width <= 2) {
-        document.getElementById('pd').innerHTML = '<h3 style="color: #ef0101"><strong>' + Math.round10(states[0].properties.MBG_Width, -2) + 'm</strong></h3><p><strong><em>' + '</strong> Muy angosto para mantener distancia</em></p>';
-      } else if (states[0].properties.MBG_Width > 2 && states[0].properties.MBG_Width <= 4) {
-        document.getElementById('pd').innerHTML = '<h3 style="color: #ff4805"><strong>' + Math.round10(states[0].properties.MBG_Width, -2) + 'm</strong></h3><p ><strong><em>' + '</strong> Es difícil mantener la distancia</em></p>';
-      } else if (states[0].properties.MBG_Width > 4 && states[0].properties.MBG_Width <= 8) {
-        document.getElementById('pd').innerHTML = '<h3 style="color: #f2d202"><strong>' + Math.round10(states[0].properties.MBG_Width, -2) + 'm</strong></h3><p ><strong><em>' + '</strong> Puede ser difícil mantener la distancia</em></p>';
-      } else if (states[0].properties.MBG_Width > 8 && states[0].properties.MBG_Width <= 16) {
-        document.getElementById('pd').innerHTML = '<h3 style="color: #5ae736"><strong>' + Math.round10(states[0].properties.MBG_Width, -2) + 'm</strong></h3><p ><strong><em>' + '</strong> Debe ser sencillo mantener la distancia</em></p>';
-      } else if (states[0].properties.MBG_Width > 16) {
-        document.getElementById('pd').innerHTML = '<h3 style="color: #15bbd1"><strong>' + Math.round10(states[0].properties.MBG_Width, -2) + 'm</strong></h3><p ><strong><em>' + '</strong> Es muy facil mantener la distancia</em></p>';
-      } else {
+      if (states[0].properties.TDS > 0 {
         document.getElementById('pd').innerHTML = '<p>Pasa el mouse sobre un andén!</p>';
       }
     });
