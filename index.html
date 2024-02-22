@@ -7,7 +7,9 @@
 <link href="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js"></script>
 <style>
-body { margin: 0; padding: 0; }
+body {
+  display: grid; 
+  margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 .mapboxgl-popup {
         max-width: 400px;
@@ -17,11 +19,25 @@ body { margin: 0; padding: 0; }
             Helvetica,
             sans-serif;
     }
+#image-ref{
+  position: fixed; bottom: 10px; right: 10px;
+  z-index: 10;
 
+}
+
+.responsive {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
 </style>
 </head>
 <body>
+  <div id="image-ref">
+    <img src="./Scale.png" alt="Water quality reference" height="500px" class="responsive">
+  </div>
 <div id="map"></div>
+
 <script src="./Script.js"></script>
 
 </body>
